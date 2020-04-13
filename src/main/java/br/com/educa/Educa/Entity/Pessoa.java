@@ -1,8 +1,24 @@
 package br.com.educa.Educa.Entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pessoa")
 public class Pessoa {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoa_id_seq")
+	@SequenceGenerator(name = "pessoa_id_seq", sequenceName = "pessoa_id_seq", allocationSize = 1)
+	@Column(name = "id")
 	private int id;
+
+	@Column(name = "nome")
 	private String nome;
 	
 	public int getId() {
